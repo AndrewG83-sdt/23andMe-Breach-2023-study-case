@@ -1,0 +1,65 @@
+# Report Tecnico: 23andMe Credential Stuffing Breach (2023)
+
+## Introduzione
+Nell’ottobre 2023, 23andMe è stata vittima di un data breach su larga scala. L’attacco si è basato su credential stuffing, ossia l’uso di credenziali già rubate da altri siti. Questo incidente dimostra che anche senza exploit complessi si possono generare impatti enormi, se mancano misure di base come la MFA.
+
+## Contesto
+23andMe fornisce servizi di analisi genetica e genealogica, con funzioni social come “DNA Relatives”. Questa caratteristica ha amplificato l’attacco: compromettendo migliaia di account, gli attaccanti hanno potuto accedere indirettamente a milioni di profili collegati.  
+
+Fonti: [Arxiv.org](https://arxiv.org/pdf/2502.04303), [TechCrunch](https://techcrunch.com/2023/10/09/23andme-hackers-breach-data/), [California AG](https://oag.ca.gov/system/files/CA%20AG%20-%20CA%20Notification%20Letters.pdf).
+
+## Timeline dell’incidente
+- **Aprile – Settembre 2023** – Attacchi di credential stuffing in corso.  
+- **1 ottobre 2023** – Pubblicazione di un campione di dati su forum online.  
+- **Ottobre 2023** – Conferma ufficiale del breach, reset forzato password.  
+- **2024** – Indagini e sanzioni da parte di ICO (UK) e autorità canadesi.
+
+## Tecniche utilizzate
+- Credential stuffing con bot e liste di credenziali compromesse.  
+- Automazione massiva di tentativi di login.  
+- Abuso delle funzioni DNA Relatives e Family Tree per estrarre dati collegati.
+
+## Dati compromessi
+- ~14.000 account inizialmente violati.  
+- ~6,9 milioni di utenti impattati tramite collegamenti.  
+- Dati esposti: nome, sesso, anno di nascita, etnia, relazioni familiari.  
+- Secondo l’azienda, i dati genetici grezzi non sono stati compromessi.
+
+Fonti: [Wired](https://www.wired.com/story/23andme-hack-genetic-data/), [HIPAA Journal](https://www.hipaajournal.com/23andme-user-data-stolen-credential-stuffing-campaign/), [Wikipedia](https://en.wikipedia.org/wiki/23andMe_data_leak).
+
+## Impatto
+- Grave perdita di fiducia dei clienti.  
+- Class action negli USA.  
+- Multa di £2,3 milioni da parte del UK ICO.  
+- Rischio etico di profiling genetico.
+
+## Lezioni apprese
+Il punto più evidente è la debolezza nell’autenticazione: l’assenza di MFA obbligatoria ha reso semplice sfruttare il riuso delle password. Un altro aspetto critico è il design delle funzioni social (DNA Relatives), che ha amplificato enormemente l’impatto del breach.
+
+## Azioni Correttive e Preventive
+
+### Correttive (immediate)
+1. Reset forzato di tutte le password e logout globale.  
+2. Attivazione immediata della MFA obbligatoria.  
+3. Analisi dei log per individuare accessi sospetti e automatizzati.  
+4. Comunicazione tempestiva agli utenti con linee guida pratiche.
+
+### Preventive (medio-lungo termine)
+1. **Contromisure anti-credential stuffing**: rate limiting, CAPTCHA, rilevamento comportamentale.  
+2. **Verifica continua delle credenziali esposte** tramite feed e API pubbliche.  
+3. **Revisione del design delle funzioni DNA Relatives** per ridurre l’esposizione dei dati.  
+4. **Threat Intelligence attiva**: monitoraggio del dark web per individuare dump.  
+5. **Politiche di password robuste** e controlli di riuso.  
+6. **Programma di Bug Bounty** per individuare vulnerabilità prima dei criminali.  
+7. **Audit regolari di compliance** per GDPR, HIPAA e standard di settore.
+
+## Conclusione
+Il caso 23andMe mostra come la sicurezza non dipenda solo da exploit avanzati: a volte la più grande vulnerabilità è la cattiva gestione delle credenziali. Da analista, considero questo un esempio concreto di come controlli semplici (MFA, logging efficace, limitazione funzioni di condivisione) possano prevenire danni enormi.
+
+## Fonti principali
+- Arxiv.org – *Anatomy of the 23andMe Credential Stuffing Attack* (2024)  
+- California Attorney General – *Data Breach Notification* (2023)  
+- Wired – *23andMe Hack Exposed Genetic Data* (2023)  
+- TechCrunch – *Hackers Access Millions of 23andMe Accounts* (2023)  
+- HIPAA Journal – *23andMe User Data Stolen* (2023)  
+- UK ICO – *Enforcement Action on 23andMe* (2024)  
